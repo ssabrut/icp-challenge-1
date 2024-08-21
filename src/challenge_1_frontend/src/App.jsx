@@ -2,17 +2,7 @@ import { useState } from 'react';
 import { challenge_1_backend } from 'declarations/challenge_1_backend';
 
 function App() {
-  // const [greeting, setGreeting] = useState('');
   const [result, setResult] = useState("");
-
-  // function handleSubmit(event) {
-  //   event.preventDefault();
-  //   const name = event.target.elements.name.value;
-  //   challenge_1_backend.greet(name).then((greeting) => {
-  //     setGreeting(greeting);
-  //   });
-  //   return false;
-  // }
 
   function handleSum(e) {
     e.preventDefault();

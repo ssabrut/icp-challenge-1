@@ -35,3 +35,16 @@ button[type="submit"] {
 #greeting:empty {
   display: none;
 }
+
+h1 {
+  text-align: center;
+}
+
+#result {
+  display: grid;
+  place-items: center;
+}
+
+#result:empty {
+  display: none;
+}
