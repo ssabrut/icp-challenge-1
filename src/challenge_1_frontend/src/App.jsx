@@ -14,23 +14,69 @@ function App() {
     });
   }
 
+  function handleOperation(e) {
+    e.preventDefault();
+    const operation = e.target.elements.operation.value;
+    const a = parseInt(e.target.elements.a.value);
+    const b = parseInt(e.target.elements.b.value);
+
+    let promise;
+    switch (operation) {
+      case 'sum':
+        promise = challenge_1_backend.sum(a, b);
+        break;
+      case 'multiply':
+        promise = challenge_1_backend.multiply(a, b);
+        break;
+      case 'divide':
+        promise = challenge_1_backend.divide(a, b);
+        break;
+      case 'subtract':
+        promise = challenge_1_backend.subtract(a, b);
+        break;
+      default:
+        console.error('Invalid operation');
+        return;
+    }
+
+    promise.then((_result) => {
+      console.log(_result);
+      setResult(_result.toString());
+    });
+  }
+
   return (
     <main>
-      <img src="/logo2.svg" alt="DFINITY logo" />
-      <br />
-      <br />
-
-      <h1>Challenge 1: Simple Calculator</h1>
-      <form action="#" onSubmit={handleSum}>
+      <form action="#" onSubmit={handleOperation}>
+        <label htmlFor="operation">Operation</label>
+        <select id="operation" name="operation">
+          <option value="sum">Sum</option>
+          <option value="multiply">Multiply</option>
+          <option value="divide">Divide</option>
+          <option value="subtract">Subtract</option>
+        </select>
         <label htmlFor="a">Number 1</label>
         <input type="number" id="a" name="a" />
-        <label htmlFor="b">Number 1</label>
+        <label htmlFor="b">Number 2</label>
         <input type="number" id="b" name="b" />
         <button type="submit">Calculate</button>
       </form>
       <section id="result">Result: {result}</section>
     </main>
   );
+
+  //     <h1>Challenge 1: Simple Calculator</h1>
+  //     <h2>Sum</h2>
+  //     <form action="#" onSubmit={handleSum}>
+  //       <label htmlFor="a">Number 1</label>
+  //       <input type="number" id="a" name="a" />
+  //       <label htmlFor="b">Number 1</label>
+  //       <input type="number" id="b" name="b" />
+  //       <button type="submit">Calculate</button>
+  //     </form>
+
+  //   </main>
+  // );
 }
 
 export default App;
