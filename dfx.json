@@ -1,0 +1,26 @@
+{
+  "canisters": {
+    "challenge_1_backend": {
+      "main": "src/challenge_1_backend/main.mo",
+      "type": "motoko"
+    },
+    "challenge_1_frontend": {
+      "dependencies": [
+        "challenge_1_backend"
+      ],
+      "source": [
+        "src/challenge_1_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "challenge_1_frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
