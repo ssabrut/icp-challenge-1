@@ -4,16 +4,6 @@ import { challenge_1_backend } from 'declarations/challenge_1_backend';
 function App() {
   const [result, setResult] = useState("");
 
-  function handleSum(e) {
-    e.preventDefault();
-    const a = parseInt(e.target.elements.a.value);
-    const b = parseInt(e.target.elements.b.value);
-    challenge_1_backend.sum(a, b).then((_result) => {
-      console.log(_result)
-      setResult(_result.toString());
-    });
-  }
-
   function handleOperation(e) {
     e.preventDefault();
     const operation = e.target.elements.operation.value;
@@ -47,36 +37,30 @@ function App() {
 
   return (
     <main>
+      <h1>Simple Calculator</h1>
       <form action="#" onSubmit={handleOperation}>
-        <label htmlFor="operation">Operation</label>
-        <select id="operation" name="operation">
-          <option value="sum">Sum</option>
-          <option value="multiply">Multiply</option>
-          <option value="divide">Divide</option>
-          <option value="subtract">Subtract</option>
-        </select>
-        <label htmlFor="a">Number 1</label>
-        <input type="number" id="a" name="a" />
-        <label htmlFor="b">Number 2</label>
-        <input type="number" id="b" name="b" />
+        <div>
+          <label htmlFor="operation">Operation</label>
+          <select id="operation" name="operation">
+            <option value="sum">Sum</option>
+            <option value="multiply">Multiply</option>
+            <option value="divide">Divide</option>
+            <option value="subtract">Subtract</option>
+          </select>
+        </div>
+        <div>
+          <label htmlFor="a">Number 1</label>
+          <input type="number" id="a" name="a" />
+        </div>
+        <div>
+          <label htmlFor="b">Number 2</label>
+          <input type="number" id="b" name="b" />
+        </div>
         <button type="submit">Calculate</button>
       </form>
-      <section id="result">Result: {result}</section>
+      <h3 id="result">Result: {result}</h3>
     </main>
   );
-
-  //     <h1>Challenge 1: Simple Calculator</h1>
-  //     <h2>Sum</h2>
-  //     <form action="#" onSubmit={handleSum}>
-  //       <label htmlFor="a">Number 1</label>
-  //       <input type="number" id="a" name="a" />
-  //       <label htmlFor="b">Number 1</label>
-  //       <input type="number" id="b" name="b" />
-  //       <button type="submit">Calculate</button>
-  //     </form>
-
-  //   </main>
-  // );
 }
 
 export default App;
